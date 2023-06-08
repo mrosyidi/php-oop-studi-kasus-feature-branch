@@ -16,7 +16,8 @@
 
       function save(Todolist $todolist): void
       {
-
+        $number = sizeof($this->todolist) + 1;
+        $this->todolist[$number] = $todolist;
       }
 
       function remove(int $number): bool
