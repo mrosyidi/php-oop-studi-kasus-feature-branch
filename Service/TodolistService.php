@@ -41,7 +41,13 @@
 
       function removeTodolist(int $number): void
       {
-
+        if($this->todolistRepository->remove($number))
+        {
+          echo "SUKSES MENGHAPUS TODOLIST" . PHP_EOL;
+        }else
+        {
+          echo "GAGAL MENGHAPUS TODOLIST" . PHP_EOL;
+        }
       }
     }
   }
