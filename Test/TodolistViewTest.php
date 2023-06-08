@@ -10,7 +10,7 @@
   use Service\TodolistServiceImpl;
   use View\TodolistView;
 
-  function testShowTodolist(): void
+  function testViewShowTodolist(): void
   {
     $todolistRepository = new TodolistRepositoryImpl();
     $todolistRepository->todolist[1] = new Todolist("Belajar PHP Dasar");
@@ -21,4 +21,17 @@
     $todolistView->showTodolist();
   }
 
-  testShowTodolist();
+  function testViewAddTodolist(): void
+  {
+    $todolistRepository = new TodolistRepositoryImpl();
+    $todolistService = new TodolistServiceImpl($todolistRepository);
+    $todolistView = new TodolistView($todolistService);
+    $todolistService->addTodolist("Belajar PHP Dasar");
+    $todolistService->addTodolist("Belajar PHP OOP");
+    $todolistService->addTodolist("Belajar PHP Database");
+    $todolistService->showTodolist();
+    $todolistView->addTodolist();
+    $todolistService->showTodolist();
+  }
+
+  testViewAddTodolist();
