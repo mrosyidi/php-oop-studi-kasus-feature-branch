@@ -27,4 +27,21 @@
     $todolistService->showTodolist();
   }
 
-  testAddTodolist();
+  function testRemoveTodolist(): void
+  {
+    $todolistRepository = new TodolistRepositoryImpl();
+    $todolistService = new TodolistServiceImpl($todolistRepository);
+    $todolistService->addTodolist("Belajar PHP Dasar");
+    $todolistService->addTodolist("Belajar PHP OOP");
+    $todolistService->addTodolist("Belajar PHP Database");
+
+    $todolistService->showTodolist();
+    $todolistService->removeTodolist(1);
+    $todolistService->showTodolist();
+    $todolistService->removeTodolist(4);
+    $todolistService->showTodolist();
+    $todolistService->removeTodolist(2);
+    $todolistService->showTodolist();
+  }
+
+  testRemoveTodolist();
